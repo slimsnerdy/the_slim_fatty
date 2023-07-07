@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+{% block title %}Contact - {% endblock %}
+{% block content %}
+
+
+<div class="container">
+<div class="row">
+<div class="form col-md-8 mt-3">
+<div class="card my-8">
+    <h5 class="card-header">Contact</h5>
+    <div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger" style="text-align: left; margin-bottom: 1rem;">{{ error }}</div>
+        {% endfor %}
+        <div class="row">
+            <div class="col">
+                {% for error in form.first_name.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+                    <p>{{ form.first_name }}</p>
+            </div>
+            <div class="col">
+                {% for error in form.last_name.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+                    <p>{{ form.last_name }}</p>
+            </div>
+        </div>
+        <span>
+            {% for error in form.from_email.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+                <p>{{ form.from_email }}</p>
+            {% for error in form.subject.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+                <p>{{ form.subject }}</p>
+            {% for error in form.message.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+                <p>{{ form.message }}</p>
+        </span>
+        <div style="margin-bottom: 1rem;">{{ form.captcha }} 
+            {% for error in form.captcha.errors %}
+                <span class="alertCaptcha alert-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-actions">
+            <button type="submit"
+            class="btn btn-secondary">Send</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% comment %}
+{% if form.captcha.errors %}
+    <div class="alert alert-danger">{{ form.captcha.errors }}</div>
+{% endif %}
+{% endcomment %}
+
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+</div>
+</div>
+
+
+{% endblock content %}

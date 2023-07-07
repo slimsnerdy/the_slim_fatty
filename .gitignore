@@ -1,0 +1,13 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+images/
+*.zip
+temp_trash/
+*.code-workspace
+.VSCodeCounter/
+.env
+**/.DS_Store

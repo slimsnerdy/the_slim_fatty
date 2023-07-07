@@ -1,0 +1,48 @@
+{% load blog_tags %}
+
+<nav aria-label="Page navigation">
+{% comment %}{% if paginator.count == 0 %}{% endcomment %}
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% url_replace %}">Previous</a></li>
+        {% endif %}
+
+        {% for num in paginator.page_range %}
+        {% if page_obj.number == num %}
+            <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ num }}{% url_replace %}">{{ num }}</a></li>
+
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="page-item"><a class="page-link" href="?page={{ num }}{% url_replace %}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% url_replace %}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+
+{% comment %}
+<!-- 
+http://127.0.0.1:8000/search/?q=cake
+http://127.0.0.1:8000/search/?page=1&q=cake
+http://127.0.0.1:8000/search/?page=2&q=cake -->
+<!-- http://127.0.0.1:8000/search/?q=cake&page=2 -->
+
+    {{ page_obj.next_page_number }} <br>
+    {{ paginator.count }}<br>
+    {{ paginator.num_pages }}<br>
+    {{ paginator.page_range }}<br>
+    {{ page_obj.number }}<br>
+    {{ page_obj.0 }}<br>
+    {{ page_obj.object_list }}<br>
+    {{ page_obj.paginator }}<br>
+
+    {% if paginator.count > 7 %}
+        <p>DANDY</p>
+    {% endif %}
+{% endcomment %}
+
+<!-- regular main page pagination -->

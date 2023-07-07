@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Search - {% endblock %}
+{% block content %}
+
+
+
+<center>
+    <h1 style=  "margin-bottom: 0;
+                padding: 0.25rem;
+                background-color: #808080d1;
+                color:white;
+                font-size: 1.5rem;
+                font-style: italic;">Search Results</h1>
+    {% if object_list %}
+        <h2 style=  "margin-bottom: 0px;
+                    padding: 0.25rem;
+                    background-color: #8080801a; 
+                    font-size: 1.5rem;"><strong>"{{ query }}"</strong>👇</h2>
+    {% else %}
+        <h2 style=  "margin-bottom: 0px; 
+                    padding: 0.25rem;
+                    background-color: #8080801a; 
+                    font-size: 1.5rem;">😐</h2>
+    {% endif %}
+</center>
+
+<div class="container">
+<div class="row">
+{% if object_list %}
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 0rem; margin-bottom: 1.5rem;">
+        {% for recipe in object_list %}
+        <div class="col" style="margin-top: 1rem;">
+        <a href="{% url 'post_detail' recipe.slug %}" class="searchLink">
+            <div class="card" style="height: 100%; background-color: #808080d1; border:none;">
+                <img src="{% get_media_prefix %}{{ recipe.image }}" class="searchImage img-fluid rounded-top" alt="Card Image Cap">
+                <div class="card-body">
+                <h4 class="card-title" style="text-align:center; margin-bottom: 0; font-size: 1.7rem;">{{ recipe.title }}</h4>
+                </div>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if paginator.count > 15 %}
+    {% include "pagination.html" %}
+{% endif %}
+
+{% comment %}
+{% include "pagination_search.html" %}
+{% endcomment %}
+
+<div class="d-flex" style="justify-content: center;">  <!--2nd-->
+<!-- <div class="d-flex" style="justify-content: flex-end;"> 1st -->
+    {% comment %}
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    {% endcomment %}
+    <!-- <div class="col-md-4 float-right"> -->
+        <div class="card cardSearch" style="width: 22rem; margin-top: 1rem!important; margin-bottom: 1rem; border: none;">
+            <h5 class="card-header" style="border-bottom: none;">0.1.0-alpha</h5>
+            <div class="card-body">
+                <p class="card-text">This TREMENDOUS blog is built in Python entailing FOOD recipes cooked/baked by a ROBOT sentient!<br>~🤖<br>
+                    <span style="display: block; line-height: 1.1; font-size: small; color: rgba(116, 116, 116, 1);">
+                        <strong><a href="/disclaimer/" style="text-decoration: none; color: rgba(116, 116, 116, 1);">Disclaimer</a></strong> 👇<br>
+                        As an Amazon Associate, commissions may be earned from qualifying purchases from Amazon.com.
+                    </span>
+                </p>
+                <center>
+                    <a href="https://www.pinterest.com/theslimfatty/" class="btn btn-danger pins">Pinterest</a>
+                </center>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
+
+</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,74 @@
+#   _   _             _____ _ _             ______   _______ _________     __
+#  | | | |           / ____| (_)           |  ____/\|__   __|__   __\ \   / /
+#  | |_| |__   ___  | (___ | |_ _ __ ___   | |__ /  \  | |     | |   \ \_/ / 
+#  | __| '_ \ / _ \  \___ \| | | '_ ` _ \  |  __/ /\ \ | |     | |    \   /  
+#  | |_| | | |  __/  ____) | | | | | | | | | | / ____ \| |     | |     | |   
+#   \__|_| |_|\___| |_____/|_|_|_| |_| |_| |_|/_/    \_\_|     |_|     |_|   
+#                                                                          
+#   V 0.1.0-beta  May 2023                                                                            
+
+
+User-agent: Hello Kitty
+Disallow: /Vegetables
+Allow: /Ice Cream
+
+User-agent: *
+Disallow: /search/
+Disallow: /?
+
+Sitemap: https://theslimfatty.com/sitemap.xml
+
+#                                                     .:::.                ..                                 
+#                                                  ~5B&&&&#GJ~     .^!J5GB#&&#5~                              
+#                                                !B@@#BGGGB&@@G775B&@@&BPYJ?JB@@?                             
+#               .^^^^::.                        Y@@#P5555555P#@@@&PJ!:.       Y@@7                            
+#             ^P&@@@@@&&#GPJ7^.    .:^~7?JYPGGB#@@G55PPP555555G&@B.            G@&:                           
+#            !&@&J~^^~!7J5B&@@&BPPB&@@@@@&#BGP#@@G5PPPP55PGBBGPG@@G~:.         !@@J                           
+#           ^&@#^          .^!YG#B5J7!^:..   .#@#555PP5P#@&##@&&@@@@&#GJ~!J5PGB#@@#!.                         
+#           5@@7                             7@@G5PPPP5B@&55B@&BGPPPPG#@@@@&#BBBB#&@&J                        
+#          .#@&.                             ?@@G5PPPP5P&@##@&P55555555G&@B55555555G&@5                       
+#          .#@#.                             ^&@#5555555PG#@@B5PPPP5PPP5#@@&BP5PPP55B@&:                      
+#           G@@~                              !&@&GPPPPPGG#@@&P5NERD555G@@BB@&PPPP55#@#.                      
+#           7@@B~?!                            :JB&@@@@&&BPJG@&BPPPPPG#@@&G#@#55P55G@@?                       
+#            P@@@@Y                               :^~!~^:    !5#&&&&@@&BB##BG5555P#@@J                        
+#            :&@@?                                              :~~7B@&P5555555PB@@@@Y                        
+#            5@@7                                                   .?#@&#BBB#&@@G!?@@?                       
+#           J@@Y                                                      .!YGB##G57:   P@&^                      
+#          ^&@#.                                                           .        ^@@Y                      
+#          Y@@?                                                                  .:~?@@&PPPPGPP5~             
+#          G@@^                                                                .5###B&@@PJ??777!:             
+#          #@#.                                                    .~~:         :^:. P@@:                     
+#          B@&^...            .:.                                 !&@@&?             G@&.                     
+#  .^7?Y5PG@@@###BG!        .5&&#?                                5@@@@B         .JPG@@@G5YJ7!^               
+#  JBGP5YJ?J@@B^^^^.        7@@@@@:                               :G&&#!          ^!B@@GJY55557               
+#           5@@7            ^#@@@P             .!Y555?^             .:.            ^&@#.                      
+#           .B@&?!?J^        .~!^             :#&J77?#@!                       ^!~!#@@~                       
+#        ^!JP&@@@&Y7:                         .G&5JJ5#B^                      .JB@@@@@GY!^.                   
+#       :PP5J7!G@@J                             ^!777^                     ^YB&##@@&YYPB#&#G!                 
+#               ?#@#J?5GG:                                                ?@@G?7JB@@&&&#PJ77~                 
+#               .?@@@@@P^                                                ^&@B    .~~^~75#@#7                  
+#            .!P&&P?7P&@&GY!^.                                     .:~?5B@@@G           .Y@@J                 
+#           ?&&P!.    .~JG&@@#BPY?7!^::..               ..:^^~7?YPG#&@@#PJP@@Y.           B@&.                
+#           !7.        .^?G@@@@@@@@@@@&&###BBBBGGGBBBB##&&@@@@@@&&@@#!.    !#@#!          B@&.                
+#                  .~JG&@&B5?~!B@@BPGGG#@@YJYY5555555YYJ?77#@#PPPPG&@B~     .5@@Y.       Y@@?                 
+#                ^Y#@@BJ~.   ^#@&G55555P#@P:             .Y@&P55555P#@@?      !#@#~    ~B@&?                  
+#              ~G@@@&7      7@@#P55PPPP5PB&&P7^.     .^75&@BP5PPPPP55B@@5      :P@@Y^?B@@5^                   
+#            ^P@@57P&@BJ^  7@@#P5PPPPPPP55PG#&&##BGBB#&&#GP55PP007PP55G@@P       5@@@@#J^                     
+#           7&@G~   :?B@@GY@@#55PPPPPPPPPP5555PGGGGGGGPP555PPPPPPPPPP55G@@5 .^7P#@&GJ~                        
+#          7@@5        ^J&@@&P5PPPPPPPPPPPPP5555555555555PPPPPPPPPPPPP55B@@B#@@B5!:                           
+#         .#@#.          G@&P5PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP5#@@G~:                               
+#         .#@B          7@@B55PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP5P@@G                                 
+#          ?@@P:        B@&P5PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP5B@@!                                
+#           !G@@GJ!~~~75@@B5PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP5P@@P                                
+#             ^JG#&&&&&@@@G5PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP5PPPPPP5&@#.                               
+#                 .:::.G@@P555PPPPPPPPPPPPPPPPPPP555PPPPPPPPPPPPPPP55555555#@@^                               
+#                      G@&P55555555555555555555555GP55555555555555555555555B@@~                               
+#                      B@@&&########BBBBBBBBBBBBB#@&BBBBBBBBB#########&&&&&@@@~                               
+#                      G@@PY5PPGGGGBBBBBBBBBBBBB#@@@#BBBBBBBBBBGGGGPPP55YYJB@@~                               
+#                      P@@:                      P@@^                      5@@^                               
+#                      ?@@?                      5@@^                     .#@B                                
+#                      .#@#:                     5@@^                     Y@@7                                
+#                       ^#@&7.                  ^#@@Y                   ~G@@J                                 
+#                        .J&@&GY?7!~~^^^^^^~!7JG@@B&@#5?7!~~^^~~~!!7JYG#@@P~                                  
+#                          .!JPB#&&@@@@@@@@@&&#GJ~ .75B#&&@@@@@@@&&&#BPY!:                                    
+#                                .::^^^^^^^::.          .:::^^^:::..            

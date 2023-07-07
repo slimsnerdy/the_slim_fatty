@@ -1,0 +1,101 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}{{ site.name }}</title>
+        <meta name="description" content="{% block meta %}{% autoescape off %}{{ site.meta_description }}{% endautoescape %}{% endblock %}">  <!-- 5-2-23 -->
+        <link rel="canonical" href="{{ request.build_absolute_uri }}">  <!-- 5-1-23 -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
+        <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/27c38b7f1e.js" crossorigin="anonymous"></script>
+        <link rel ="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <!-- Pinterest rich Pins -->
+        <meta property="og:site_name" content="the Slim FATTY">
+        {% block rich %}{% endblock %}
+        <script src="{% static 'javascript/scripts.js' %}" defer></script>
+        
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.2/dist/index.bundle.min.js" defer></script> -->
+
+        <!-- <script type="module" src="{% static 'javascript/index.js' %}"></script> -->
+        <!-- <script type="module" src="{% static 'javascript/index.js' %}"></script> -->
+        <!-- <script src="{% static 'javascript/index.js' %}"></script> -->
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-body sticky-top">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <span class="one">the </span><span class="two">Slim</span><span class="three">FATTY</span>
+            <img src="{% static 'sentient_donut.png' %}" class="logo" alt="Logo Sentient Donut" data-pin-no-hover="true">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <form class="d-flex" action="{% url 'search' %}" method="get">
+                            <input class="form-control me-2"
+                                type="text" placeholder="find recipes" aria-label="Search" name="q" value="{{ request.GET.q }}">
+                            <button class="btn btn-secondary" type="submit">SEARCH</button>
+                        </form> 
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{% url 'contact' %}">Contact</a>
+                    </li>
+            </ul>
+        </div>
+{% comment %}
+<!-- login logout system IN PROGRESS -->
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <!-- <p><a href="{% url 'password_reset' %}">Reset Password</a></p> -->
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a> |
+        <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+    {% endif %}
+<!-- ----------------------------------------- -->
+{% endcomment %}
+        </div>
+        </nav>
+
+        {% include 'messages.html' %}
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+        <button type="button" class="btn btn-info btn-floating btn-lg" id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Footer -->
+        <footer class="py-3 bg-grey">
+            <!-- <p class="m-0 text-dark text-center">Copyright &copy; 2022 The Slim FATTY -->
+            <p class="m-0 text-dark text-center">&copy; {% now "Y" %} the Slim FATTY<span style="color: rgba(0,0,0,.55); font-size: larger;"> | </span>🦅<img src="{% static 'usa_flag.svg' %}" class="USA" alt="USA Flag" height="16px" style="vertical-align: baseline;"><span style="color: rgba(0,0,0,.55); font-size: larger;"> | </span><a href="{% url 'privacy' %}" style="text-decoration: none; color: rgba(0,0,0,.55);" >Privacy</a></p>
+            {# change the date programmatically 2023 #}
+        </footer>
+
+    </body>
+    
+</html>
+
+
+<!-- <p style="margin-bottom:0px; background-color: #8080801a;"></p> -->

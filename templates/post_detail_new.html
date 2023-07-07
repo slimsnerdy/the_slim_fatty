@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} - the Slim FATTY{% endblock %}
+{% block content %}
+{% load static %}
+
+
+<div class="container">
+<div class="row">
+    <div class="col-md-8 card mb-4 mt-3 left top main_article">
+        <div class="card-body">
+        <h1>{{ post.title }}</h1>
+        <p class="text-muted">
+            {% if post.author.username == writer %}
+                kitty
+            {% else %}
+                {{ post.author }} 
+            {% endif %}
+                | {{ post.created_on|date:"F j, Y" }} 
+            <a class="jumpLink" href="#recipe">&nbsp SKIP TO RECIPE &nbsp</a>
+        </p>
+        <img src="{% get_media_prefix %}{{ post.image }}" class="img_detail_main" alt="{{ post.image|cut:"images/" }}">
+        <p class="card-text">
+            <article class="textContent">{{ post.intro|safe }}</article>
+            <section id="recipe">
+                <article class="textContent" style="background-color:aliceblue;
+                                                    box-shadow: 0 0 10px 1px white inset;
+                                                    margin: -10px;">
+                                                    {{ post.recipe|safe }}
+                </article>
+            </section>
+            {# {% lorem 3 p %} #}
+        </p>
+
+
+        {% comment %}
+        {% for img in image_list %}
+            {% if not forloop.last %}
+                <img src="{% get_media_prefix %}{{ img.image }}" class="img_detail" alt="{{ img.image|cut:"images/" }}">
+                <br><br>
+            {% else %}
+                <img src="{% get_media_prefix %}{{ img.image }}" class="img_detail" alt="{{ img.image|cut:"images/" }}">
+            {% endif %}
+        {% endfor %}
+        {% endcomment %}
+
+
+        {% if image_list|length > 1 %}
+            <!-- <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="false" data-bs-interval="false"> -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+                <div class="carousel-indicators">
+                    {% for img in image_list %}
+                        {% if forloop.first %}
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="active" aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
+                        {% else %}
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide {{ forloop.counter }}"></button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for img in image_list %}
+                        {% if forloop.first %}
+                            <div class="carousel-item active">
+                                <!-- <a href="{% get_media_prefix %}{{ img.image }}" data-toggle="lightbox" data-caption="The TOY 🥲" data-gallery="example-gallery"> -->
+
+                                    <!-- <a href="{% get_media_prefix %}{{ img.image }}" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+
+                                <!-- <a href="{% get_media_prefix %}{{ img.image }}" data-toggle="lightbox" data-gallery="example-gallery"> -->
+                                        <img src="{% get_media_prefix %}{{ img.image }}" class="d-block w-100" alt="{{ img.image|cut:"images/" }}">
+
+                                    <!-- </a> -->
+                            </div>
+                        {% else %}
+                            <div class="carousel-item">
+                                <!-- <a href="{% get_media_prefix %}{{ img.image }}" data-toggle="lightbox" data-gallery="example-gallery"> -->
+
+                                    <!-- <a href="{% get_media_prefix %}{{ img.image }}" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+
+                                    <img src="{% get_media_prefix %}{{ img.image }}" class="d-block w-100" alt="{{ img.image|cut:"images/" }}">
+
+                                <!-- </a> -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            {% for img in image_list %}
+                <img src="{% get_media_prefix %}{{ img.image }}" class="img_detail" alt="{{ img.image|cut:"images/" }}">
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.2/dist/index.bundle.min.js"></script> -->
+    
+    
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+</div>
+</div>
+
+
+{% endblock content %}

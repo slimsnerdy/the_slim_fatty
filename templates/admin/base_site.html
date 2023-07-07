@@ -1,0 +1,143 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name" style="font-size:32px;"><a href="{% url 'admin:index' %}">the Slim FATTY | Admin
+    <img src="{% static 'sentient_donut.png' %}" class="logo" alt="Logo Sentient Donut" height=60px>
+</a></h1>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+    /* force light mode */
+    /* :root {
+        --primary: #79aec8;
+        --secondary: #417690;
+        --accent: #f5dd5d;
+        --primary-fg: #fff;
+    
+        --body-fg: #333;
+        --body-bg: #fff;
+        --body-quiet-color: #666;
+        --body-loud-color: #000;
+    
+        --header-color: #ffc;
+        --header-branding-color: var(--accent);
+        --header-bg: var(--secondary);
+        --header-link-color: var(--primary-fg);
+    
+        --breadcrumbs-fg: #c4dce8;
+        --breadcrumbs-link-fg: var(--body-bg);
+        --breadcrumbs-bg: var(--primary);
+    
+        --link-fg: #447e9b;
+        --link-hover-color: #036;
+        --link-selected-fg: #5b80b2;
+    
+        --hairline-color: #e8e8e8;
+        --border-color: #ccc;
+    
+        --error-fg: #ba2121;
+    
+        --message-success-bg: #dfd;
+        --message-warning-bg: #ffc;
+        --message-error-bg: #ffefef;
+    
+        --darkened-bg: #f8f8f8;
+        --selected-bg: #e4e4e4;
+        --selected-row: #ffc;
+    
+        --button-fg: #fff;
+        --button-bg: var(--primary);
+        --button-hover-bg: #609ab6;
+        --default-button-bg: var(--secondary);
+        --default-button-hover-bg: #205067;
+        --close-button-bg: #888;
+        --close-button-hover-bg: #747474;
+        --delete-button-bg: #ba2121;
+        --delete-button-hover-bg: #a41515;
+    
+        --object-tools-fg: var(--button-fg);
+        --object-tools-bg: var(--close-button-bg);
+        --object-tools-hover-bg: var(--close-button-hover-bg);
+    } */
+    /* ---------------------------------------------------------------------------- */
+    /* dark mode bug fixes */
+    /* input[type=text], input[type=password], input[type=email], input[type=url],
+    input[type=number], input[type=tel], textarea, select, .vTextField {
+        color: #000000;
+        background-color: #ffffff;
+    } */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --primary: #9e00f494;
+            --link-fg: #ffcdfe;
+            --link-hover-color: #9e00f4;
+            --link-selected-fg: #9e00f457;
+            --message-success-bg: #1db328b8;
+            --message-warning-bg: #ff7800;
+            --message-error-bg: #ff1a0a;
+            --selected-row: #9e00f438;
+            --button-hover-bg: #9e00f4;
+            --default-button-bg: #9e00f4;
+            --default-button-hover-bg: #9103de94;
+            --delete-button-bg: #ff1a0a;
+            --delete-button-hover-bg: #ff1a0ade;
+        }
+    }
+    textarea {  /*Source area reveal fix */
+        color: #000000;
+    }
+    .cke_reset_all, .cke_reset_all *, .cke_reset_all a, .cke_reset_all textarea {
+        color: revert!important;
+    }
+    .cke_dialog_title {
+        color: #484848!important;
+    }
+    a.cke_dialog_tab {
+        color: #484848!important;
+    }
+    .cke_combo_text {
+        color: #484848!important;
+    }
+    .cke_button_label {
+        color: #484848!important;
+    }
+    a.cke_dialog_ui_button {
+        color: #484848!important;
+    }
+    a.cke_path_item, span.cke_path_empty {
+        color: #484848!important;
+    }
+    a.cke_specialchar {
+        color: #81D4FA!important;
+    }
+    .login #container {
+        width: 32em!important;
+    }
+    #branding h1, #branding h1 a:link, #branding h1 a:visited {
+        color: #ffcdfe!important;
+    }
+    #header {
+        color: #ff00cd;
+        background: #41769021;
+        align-items: start;
+    }
+    #user-tools {
+        font-size: 13px;
+        letter-spacing: 0.75px;
+    }
+    td, th {
+        font-size: 14px;
+    }
+    #changelist-filter li.selected a {
+        /* display: inline; */
+        background: #121212;
+        color: #ffcdfe!important;
+    }
+</style>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
